@@ -46,14 +46,14 @@ jobs:
             exit 1
           fi
 
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
-  
+          - name: Deploy to GitHub Pages
+            if: success()
+            run: |
+              npm install --save-dev gh-pages
+              npm run build
+              npx gh-pages -d build -b gh-pages -r abhijithhegde/SuperChat
+      
+
     
       - name: Merge pull request
         if: github.event_name == 'pull_request' && success()
