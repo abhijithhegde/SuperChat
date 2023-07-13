@@ -46,12 +46,12 @@ jobs:
             exit 1
           fi
 
-          - name: Deploy to GitHub Pages
-            if: success()
-            run: |
-              npm install --save-dev gh-pages
-              npm run build
-              npx gh-pages -d build -b gh-pages -r abhijithhegde/SuperChat
+      - name: Deploy to GitHub Pages
+        if: success()
+        run: |
+          npm install --save-dev gh-pages
+          npm run build
+          npx gh-pages -d build -b gh-pages -r abhijithhegde/SuperChat
       
 
     
