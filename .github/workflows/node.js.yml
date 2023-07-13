@@ -55,11 +55,11 @@ jobs:
 
       - name: Merge pull request
         if: github.event_name == 'pull_request' && success()
-        uses: octokit/rest.js@v1
+        uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const response = await octokit.pulls.merge({
+            const response = await github.pulls.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.payload.pull_request.number,
