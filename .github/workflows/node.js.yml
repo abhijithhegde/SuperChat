@@ -52,7 +52,7 @@ jobs:
         with:
           branch: gh-pages
           folder: build
-
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Merge pull request
         if: github.event_name == 'pull_request' && success()
         uses: actions/github-script@v5
